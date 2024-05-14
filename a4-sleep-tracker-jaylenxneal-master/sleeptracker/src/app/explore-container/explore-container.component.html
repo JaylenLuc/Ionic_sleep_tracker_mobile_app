@@ -1,0 +1,57 @@
+
+
+<div id="container">
+  <div *ngIf="tab2 == 'n'">  
+    <ion-label>{{date_choose}}</ion-label>
+    <ion-datetime color="rose" id = "date-picker" presentation="date" [preferWheel]="true" (ionChange)="onDatetimeChange($event)" ></ion-datetime>
+    <ion-label >{{start_time}}</ion-label>
+    <ion-datetime color= "primary" id = "time-picker" presentation="time" (ionChange)="onSleepTimeChange($event)"></ion-datetime>
+    <ion-label >{{end_time}}</ion-label>
+    <ion-datetime color= "primary" id = "time-picker-end" presentation="time" (ionChange)="onWakeTimeChange($event)"></ion-datetime>
+    <ion-label><span style= "color:palevioletred">*REQUIRED</span> {{scale_label}}</ion-label>
+    <br>
+
+    <ion-chip color="{{this.array[0][this.finite_states['Atrocious']]}}" (click)="chipClick($event)">Atrocious</ion-chip>
+    <ion-chip color="{{this.array[1][this.finite_states['Bad']]}}" (click)="chipClick($event)">Bad</ion-chip>
+    <ion-chip color="{{this.array[2][this.finite_states['Below Average']]}}" (click)="chipClick($event)">Below Average</ion-chip>
+    <ion-chip color="{{this.array[3][this.finite_states['Mid']]}}" (click)="chipClick($event)">Mid</ion-chip>
+    <ion-chip color="{{this.array[4][this.finite_states['Above average']]}}" (click)="chipClick($event)">Above average</ion-chip>
+    <ion-chip color="{{this.array[5][this.finite_states['Good']]}}" (click)="chipClick($event)">Good</ion-chip>
+    <ion-chip color="{{this.array[6][this.finite_states['Amazing']]}}" (click)="chipClick($event)">Amazing</ion-chip>
+    <br>
+    <ion-item>
+      <ion-input [(ngModel)]="notes" color="primary" label="Notes" labelPlacement="floating" placeholder="{{this.placeholder_text}}"></ion-input>
+    </ion-item>
+    <!-- <ion-textarea label="Notes" placeholder="Write your thoughts"></ion-textarea> -->
+    <br>
+    <ion-button (click)="SubmitSleepData($event)">{{button_label}}</ion-button>
+  </div>
+  <div *ngIf="tab2 == 'y'">
+    <br>
+    <ion-segment value="default" color="warning" (ionChange) ="segChange($event)">
+      <ion-segment-button value="default" color="warning">
+        <ion-label>Sleep Data</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="segment">
+        <ion-label>Daytime Sleepiness Data</ion-label>
+      </ion-segment-button>
+      <br>
+    </ion-segment>
+    <ion-label>Select day to view logs</ion-label>
+    <ion-datetime color="rose" id = "date-picker" presentation="date" [preferWheel]="true" (ionChange)="viewDateChange($event)" ></ion-datetime>
+    <br>
+
+    <div *ngFor="let entry of all_entries; let index=index">
+      <ion-card color="{{color[index]}}">
+        <ion-card-header>
+          <ion-card-title>{{entry[sleep_index]}} to {{entry[wake_index]}}</ion-card-title>
+          <ion-card-subtitle>I felt {{entry["rating"]}}</ion-card-subtitle>
+        </ion-card-header>
+      
+        <ion-card-content>{{entry["notes"]}}</ion-card-content>
+      </ion-card>
+    </div>
+    
+
+  </div>
+</div>

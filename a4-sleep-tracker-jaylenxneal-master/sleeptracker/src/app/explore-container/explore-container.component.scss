@@ -1,0 +1,79 @@
+#container {
+  text-align: center;
+  
+
+  position: absolute;
+  left: 0;
+  right: 0;
+  padding-top: 10%;
+  padding-bottom: 25%;
+  //transform: translateY(-50%);
+}
+%date-time-pickers-shared {
+  
+  border-radius: 5px;
+  height: 120px; 
+  display: block;
+  margin-left: auto;
+  margin-right: auto 
+  
+
+}
+ion-datetime {
+  --background: rgb(245, 235, 247);
+  --background-rgb: 245, 235, 247;
+  --wheel-highlight-background: rgb(218, 216, 255);
+  --wheel-fade-background-rgb: 245, 235, 247;
+}
+
+ion-datetime::part(wheel-item) {
+  color: rgb(255, 66, 97);
+}
+
+ion-datetime::part(wheel-item active) {
+  color: rgb(128, 30, 171);
+}
+.center-text {
+  text-align: center;
+}
+
+#date-picker{
+  @extend %date-time-pickers-shared
+}
+
+#time-picker{
+  @extend %date-time-pickers-shared
+}
+
+#time-picker-end{
+  @extend %date-time-pickers-shared
+}
+
+#container strong {
+  font-size: 20px;
+  line-height: 26px;
+}
+
+#container p {
+  font-size: 16px;
+  line-height: 22px;
+
+  color: #8c8c8c;
+
+  margin: 0;
+   
+}
+
+#container a {
+  text-decoration: none;
+}
+// ion-chip {
+//   --ion-color-best: #D9F7CD;
+//   --ion-color-best: #D9F7CD;
+//   --ion-color-good: #E1EDCC;
+//   --ion-color-aavg: #E8E4CB;
+//   --ion-color-mid: #f0e6c9;
+//   --ion-color-below: #F0DAC9;
+//   --ion-color-bad: #F7D1C8;
+//   --ion-color-worst: #FFC7C7;
+// }
